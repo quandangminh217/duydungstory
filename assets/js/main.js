@@ -16,8 +16,15 @@ langToggle.addEventListener('click', () => {
 const menuButtons = document.querySelectorAll('.album-menu button');
 const galleryItems = document.querySelectorAll('.gallery a');
 const pageTitles = document.querySelectorAll('.page-title h1');
-const pageTitlesh3 = document.querySelectorAll('.page-title h3');
+// const pageTitlesh3 = document.querySelectorAll('.page-title h3');
 const pageTitleCommingSoon = document.querySelector('.page-title.commingsoon');
+
+const storyofloveGallery = document.querySelector('#storyoflove-gallery');
+const bridgegroomGallery = document.querySelector('#bridegroom-gallery');
+const ourlovelyguestsGallery = document.querySelector('#ourlovelyguests-gallery');
+const momentofjoyGallery = document.querySelector('#momentofjoy-gallery');
+const weddingceremonyGallery = document.querySelector('#weddingceremony-gallery');
+// const photoboothmomentGaller = document.querySelector('#photoboothmoment-gallery');
 
 menuButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -30,38 +37,35 @@ menuButtons.forEach(button => {
     pageTitles.forEach(item => {
       if (filter === "storyoflove") {
         item.textContent = 'STORY OF LOVE';
-
-        pageTitlesh3.forEach(item1 => {
-          item1.style.display = "none";
-        })
       }
       if (filter === "bridgegroom") {
         item.textContent = 'BRIDE & GROOM';
 
-        pageTitlesh3.forEach(item1 => {
-          item1.style.display = "none";
-        })
+        storyofloveGallery.style.padding = '0px';
       }
       if (filter === "ourlovelyguests") {
         item.textContent = 'OUR LOVELY GUESTS';
 
-        pageTitlesh3.forEach(item1 => {
-          item1.style.display = "block";
-        })
+        storyofloveGallery.style.padding = '0px';
+        bridgegroomGallery.style.padding = '0px';
+      }
+      if (filter === "momentofjoy") {
+        item.textContent = 'MOMENT OF JOY';
+
+        storyofloveGallery.style.padding = '0px';
+        bridgegroomGallery.style.padding = '0px';
+        ourlovelyguestsGallery.style.padding = '0px';
       }
       if (filter === "weddingceremony") {
         item.textContent = 'WEDDING CEREMONY';
 
-        pageTitlesh3.forEach(item1 => {
-          item1.style.display = "none";
-        })
+        storyofloveGallery.style.padding = '0px';
+        bridgegroomGallery.style.padding = '0px';
+        ourlovelyguestsGallery.style.padding = '0px';
+        momentofjoyGallery.style.padding = '0px';
       }
       if (filter === "photoboothmoment") {
         item.textContent = 'PHOTOBOOTH MOMENT';
-
-        pageTitlesh3.forEach(item1 => {
-          item1.style.display = "none";
-        })
       }
     });
 
