@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-INPUT_DIR = "Originals"
+INPUT_DIR = "Prints"
 OUTPUT_DIR = "assets/img/thumb/photoboothmoment"
 
 MAX_WIDTH = 2000      # resize nếu ảnh quá lớn

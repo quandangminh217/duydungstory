@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-INPUT_DIR = "Originals"
+INPUT_DIR = "Prints"
 OUTPUT_DIR = "assets/img/full/photoboothmoment"
 
 QUALITY = 92  # rất cao
