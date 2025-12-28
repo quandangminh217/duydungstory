@@ -65,7 +65,13 @@ menuButtons.forEach(button => {
         momentofjoyGallery.style.padding = '0px';
       }
       if (filter === "photoboothmoment") {
-        item.textContent = 'COMMING SOON ♡♡♡';
+        item.textContent = 'PHOTOBOOTH MOMENT';
+
+        storyofloveGallery.style.padding = '0px';
+        bridgegroomGallery.style.padding = '0px';
+        ourlovelyguestsGallery.style.padding = '0px';
+        momentofjoyGallery.style.padding = '0px';
+        weddingceremonyGallery.style.padding = '0px';
       }
     });
 

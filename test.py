@@ -1,17 +1,48 @@
-import os
+from pathlib import Path
 
-TARGET_DIR = "assets/img/thumb/weddingceremony"  # đổi thành thư mục của bạn
+# ====== CONFIG ======
+CATEGORY = "photoboothmoment"
 
-for root, _, files in os.walk(TARGET_DIR):
-    for file in files:
-        if file.lower().endswith(".webp"):
-            new_name = file.replace("_", "")
-            if new_name != file:
-                old_path = os.path.join(root, file)
-                new_path = os.path.join(root, new_name)
+THUMB_DIR = Path("assets/img/thumb/photoboothmoment")
+FULL_DIR  = Path("assets/img/full/photoboothmoment")
 
-                if not os.path.exists(new_path):
-                    os.rename(old_path, new_path)
-                    print(f"✔ {file} → {new_name}")
-                else:
-                    print(f"⚠ Bỏ qua (trùng tên): {new_name}")
+OUTPUT_FILE = "photoboothmoment.html"
+IMG_EXTS = {".webp", ".jpg", ".jpeg", ".png"}
+# ====================
+
+
+def natural_sort_key(path: Path):
+    import re
+    return [
+        int(text) if text.isdigit() else text.lower()
+        for text in re.split(r"(\d+)", path.name)
+    ]
+
+
+thumb_files = sorted(
+    [f for f in THUMB_DIR.iterdir() if f.suffix.lower() in IMG_EXTS],
+    key=natural_sort_key
+)
+
+html_blocks = []
+
+for thumb in thumb_files:
+    full = FULL_DIR / thumb.name
+
+    if not full.exists():
+        print(f"⚠️  Missing full image: {full.name}")
+        continue
+
+    block = f"""<a href="{full.as_posix()}"
+    class="glightbox"
+    data-category="{CATEGORY}">
+    <img src="{thumb.as_posix()}" loading="lazy" alt="">
+</a>
+"""
+    html_blocks.append(block)
+
+html_output = "\n".join(html_blocks)
+
+Path(OUTPUT_FILE).write_text(html_output, encoding="utf-8")
+
+print(f"✅ Generated {len(html_blocks)} items → {OUTPUT_FILE}")
