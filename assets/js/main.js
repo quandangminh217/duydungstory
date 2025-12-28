@@ -65,7 +65,7 @@ menuButtons.forEach(button => {
         momentofjoyGallery.style.padding = '0px';
       }
       if (filter === "photoboothmoment") {
-        item.textContent = 'PHOTOBOOTH MOMENT';
+        item.textContent = 'COMMING SOON ♡♡♡';
       }
     });
 
