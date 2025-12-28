@@ -1,6 +1,6 @@
 import os
 
-TARGET_DIR = "assets/img/full/ourlovelyguests/welcomingguests"  # đổi thành thư mục của bạn
+TARGET_DIR = "assets/img/thumb/weddingceremony"  # đổi thành thư mục của bạn
 
 for root, _, files in os.walk(TARGET_DIR):
     for file in files:
